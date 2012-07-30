@@ -1,0 +1,97 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  
+    <title>GenRedio</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" type="text/css" media="screen" charset="utf-8">
+    <link href='http://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Exo:600' rel='stylesheet' type='text/css'>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='jquery-1.7.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='swfobject.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='underscore-min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+    <script type="text/javascript">
+      var playback_token = "{{ playback_token }}";
+    </script>
+  </head>
+  <body>
+    {% if profile %}
+      <div id="apiswf"></div>
+      <div class="bottom">
+        <div class="tracks"></div>
+        <div class="logo">GenRedio</div>
+      </div>
+      <div class="message"></div>
+      <div id="app">
+        <div class="logged_in">
+          <div class="icon"><img src="{{ profile['icon'] }}" /></div>
+          <div>
+            Logged in as <a href="{{ profile['url'] }}" target="_blank">{{ profile['firstName'] }}</a>. <a href="{{ url_for('logout') }}">Logout</a>
+            <div class="playlists">
+              <select name="playlists" class="playlists">
+                {% for playlist in playlists['owned'] %}
+                  <option value="{{ playlist['key'] }}">{{ playlist['name'] }}</option>
+                {% endfor %}
+              </select>
+              <input type="button" value="Add" class="add_button" />
+            </div>
+          </div>
+        </div>
+        <div id="player">
+          <div class="art">
+            <img class="main" />
+            <img class="reflection" />
+            <div class="metadata">
+              <div class="header"><a target="_blank" class="artist"></a>&nbsp;-&nbsp;<a target="_blank" class="song"></a></div>
+              <div class="details"><a target="_blank" class="album"></a></div>
+            </div>
+          </div>
+          <div class="controls">
+            <a href="#" class="next">Next</a>
+          </div>
+        </div>
+
+        <div class="selectors">
+          <div class="clearfix">
+            {% for selector in ('style1', 'style2') %}
+              <div class="style_selector selector" data-selector="{{ selector }}">
+                <div class="style_header">{{ selector }}</div>
+                <div class="style_inner">
+                  <a href="#" data-style="">(clear)</a>
+                  {% for style in styles %}
+                    {% autoescape off %}
+                      <a href="#" data-style="{{ style.name }}">{{ style.name }}</a>
+                    {% endautoescape %}
+                  {% endfor %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+
+          <div class="clearfix">
+            {% for selector in ('mood1', 'mood2') %}
+              <div class="mood_selector selector" data-selector="{{ selector }}">
+                <div class="style_header">{{ selector }}</div>
+                <div class="style_inner">
+                  <a href="#" data-mood="">(clear)</a>
+                  {% for mood in moods %}
+                    {% autoescape off %}
+                      <a href="#" data-mood="{{ mood.name }}">{{ mood.name }}</a>
+                    {% endautoescape %}
+                  {% endfor %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <table width="100%" height="100%" valign="middle" align="center"><tr><td align="center">
+        <div class="logo">GenRedio</div>
+        <a class="login" href="{{ url_for('login') }}">Login with Rdio</a>
+      </td></tr></table>
+    {% endif %}
+  </body>
+</html>

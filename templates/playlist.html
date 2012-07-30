@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  
+    <title>GenRedio</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='playlist.css') }}" type="text/css" media="screen" charset="utf-8">
+    <link href='http://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Exo:600' rel='stylesheet' type='text/css'>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='jquery-1.7.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='swfobject.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='underscore-min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='playlist.js') }}"></script>
+    <script type="text/javascript">
+      var playback_token = "{{ playback_token }}";
+    </script>
+  </head>
+  <body>
+    Playlist to extend: <input type="text" id="playlist" /> <input type="button" value="Start" id="playlist_submit" />
+    <div id="playlist_holder"></div>
+  </body>
+</html>

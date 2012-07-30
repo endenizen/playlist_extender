@@ -1,0 +1,225 @@
+body {
+  font-family: Exo;
+  background-color: #000;
+  color: white;
+  margin: 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+  width: 0px; /* and now all the rest is pretty much useless :) */
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: rgba(50,50,50,0.8); 
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(50,50,50,0.4); 
+}
+
+@-webkit-keyframes rotate {
+  0% { -webkit-transform: rotateY(0deg); }
+  50% { -webkit-transform: rotateY(180deg); }
+  100% { -webkit-transform: rotateY(0deg); }
+}
+
+@-moz-keyframes rotate {
+  0% { -moz-transform: rotateY(0deg); }
+  50% { -moz-transform: rotateY(180deg); }
+  100% { -moz-transform: rotateY(0deg); }
+}
+
+.logo {
+  -webkit-animation: rotate 10s infinite linear;
+  -moz-animation: rotate 10s infinite linear;
+  font-family: Damion;
+  font-size: 80px;
+  text-shadow: 2px 2px 0px rgba(100, 30, 0, 0.5);
+  color: rgba(100, 30, 0, 0.9);
+}
+
+.bottom {
+  margin: 0 auto;
+  bottom: 0px;
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+}
+
+.bottom .logo, .bottom .tracks {
+  -webkit-animation: none;
+  -moz-animation: none;
+  background: rgba(100, 30, 0, 0.5);
+  border-radius: 200px 200px 0 0;
+  margin: 0 auto;
+  width: 300px;
+  text-align: center;
+  font-size: 60px;
+  border-width: 2px 2px 0 2px;
+  border-color: rgba(100, 30, 0, 0.5);
+  border-style: solid;
+  box-shadow: inset 0 3px 3px black;
+}
+
+.bottom .tracks {
+  text-align: center;
+  font-size: 10px;
+  width: 140px;
+  padding: 8px 4px 5px;
+  border-radius: 25px 25px 0 0;
+  color: rgba(220, 82, 0, 0.5);
+}
+
+.login {
+  font-variant: small-caps;
+  color: transparent;
+  text-shadow: 0 0 2px white;
+}
+
+.logged_in {
+  position: absolute;
+  right: 300px;
+  top: 0;
+  border-radius: 0 0 25px 25px;
+  background-color: rgba(100, 30, 0, 0.5);
+  padding: 10px 20px 0 0;
+  text-align: right;
+  min-width: 350px;
+}
+
+.logged_in img {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  float: left;
+}
+
+#noresults {
+  display: none;
+}
+
+.selectors {
+  float: left;
+  width: 45%;
+  margin: 25px 0;
+}
+
+.selector {
+  float: left;
+  width: 50%;
+  margin-bottom: 18px;
+}
+
+.selector .style_header {
+  text-align: center;
+  margin-bottom: 3px;
+  font-variant: small-caps;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+  font-size: 29px;
+  -webkit-transform: perspective(1000px) rotateZ(-90deg);
+  -moz-transform: perspective(1000px) rotateZ(-90deg);
+  position: absolute;
+  margin: 64px 0 0 25px;
+  color: transparent;
+}
+
+.selector .style_inner {
+  overflow-y: auto;
+  height: 41%;
+  margin: 0 85px;
+  border-radius: 137px / 50px;
+  box-shadow: inset 0 0 20px rgba(255, 100, 0, 0.5);
+}
+
+.selector a {
+  text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.9);
+  display: block;
+  font-size: 12px;
+  text-align: center;
+  padding: 2px 0;
+  margin: 2px 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+  border-radius: 40px;
+}
+
+.selector a.selected {
+  background-color: rgba(255, 100, 0, 0.5);
+  color: white;
+  font-weight: bold;
+}
+
+#player {
+  width: 50%;
+  display: none;
+  float: right;
+  margin-top: 77px;
+}
+
+#player .art {
+  height: 500px;
+  -webkit-transform: perspective(1000px) rotateY(-25deg);
+  -moz-transform: perspective(1000px) rotateY(-25deg);
+}
+
+#player .art img {
+  display: block;
+  height: 80%;
+}
+
+#player .art img.main {
+}
+
+#player .art img.reflection {
+  -webkit-transform: perspective(1000px) rotateX(180deg) translate(0,0);
+  -moz-transform: perspective(1000px) rotateX(180deg);
+  opacity: .2;
+}
+
+#player .metadata {
+  position: absolute;
+  bottom: 0;
+  font-size: 23px;
+  line-height: 42px;
+  left: -56px;
+  text-shadow: 0 0 6px black;
+}
+
+.message {
+  display: none;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  padding: 10px 20px;
+  font-size: 20px;
+  background: rgba(255,100,0,0.5);
+  border-radius: 50px;
+  color: transparent;
+  text-shadow: 0 0 2px white;
+  box-shadow: 0 0 21px rgba(255,50,0,0.8);
+  font-weight: bold;
+}

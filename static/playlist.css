@@ -1,0 +1,21 @@
+#playlist_holder {
+  width: 270px;
+}
+
+#playlist_holder ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#playlist_holder ul li {
+  font-size: 11px;
+  border-top: 1px solid #666;
+  padding: 3px 7px;
+}
+
+#playlist_holder ul li:first-child {
+  border-top: none;
+}
